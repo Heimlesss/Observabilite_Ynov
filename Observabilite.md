@@ -32,3 +32,24 @@ Recharger avec un <blockquote>curl -X POST http://localhost:9090/-/reload</block
 Verifier la manipulation dans prometheus dans status>Configuration
     
 <img width="1293" height="1073" alt="image" src="https://github.com/user-attachments/assets/3c26dc9d-0860-4802-b27a-344f0c91ec45" />
+
+<h3>Exercice 3</h3>
+Ajout d'un container node_exporter dans le compose
+<blockquote>services:</br>
+  prometheus:</br>
+    image: prom/prometheus</br>
+    command: </br>
+      - --web.enable-lifecycle </br>
+      - --config.file=/etc/prometheus/prometheus.yml</br>
+    volumes:</br>
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml</br>
+    ports:</br>
+      - "9090:9090"</br>
+    restart: no</br>
+
+  node_exporter:</br>
+    image: prom/node-exporter</br>
+    ports:</br>
+      - "9100:9100"</br>
+    restart: no</br>
+</blockquote>
