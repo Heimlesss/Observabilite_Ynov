@@ -19,3 +19,16 @@ Status>Target : </br>
 Pour vérifier que Prometheus se scrap lui même, atteindre prometheus.yml (chemin affiché dans les logs du container, par défaut : /etc/prometheus/prometheus.yml) : 
 <img width="1535" height="253" alt="image" src="https://github.com/user-attachments/assets/a2ac0287-0bb8-4106-b77a-619713e72a8e" />
 
+
+
+
+<h3>Exercice 2</h3>
+Modififer le fichier de configuration prometheus.yml
+<blockquote>global:</br>
+  scrape_interval: 10s</br>
+  external_labels:</br>
+    environnment: lab</br></blockquote>
+Recharger avec un <blockquote>curl -X POST http://localhost:9090/-/reload</blockquote>
+Verifier la manipulation dans prometheus dans status>Configuration
+    
+<img width="1293" height="1073" alt="image" src="https://github.com/user-attachments/assets/3c26dc9d-0860-4802-b27a-344f0c91ec45" />
