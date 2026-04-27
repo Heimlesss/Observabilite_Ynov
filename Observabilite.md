@@ -35,7 +35,7 @@ Verifier la manipulation dans prometheus dans status>Configuration
 
 <h3>Exercice 3</h3>
 Ajout d'un container node_exporter dans le compose
-```yamlservices:</br>
+```services:</br>
   prometheus:</br>
     image: prom/prometheus</br>
     command: </br>
@@ -52,21 +52,21 @@ Ajout d'un container node_exporter dans le compose
     ports:</br>
       - "9100:9100"</br>
     restart: no</br>
-```</br>
+```
 Ajouter un nouveau job nommé 'node' dans prometheus.yml 
-<blockquote>global:</br>
-  scrape_interval: 10s</br>
-  external_labels:</br>
-    environnment: lab</br>
+<blockquote>global:
+  scrape_interval: 10s
+  external_labels:
+    environnment: lab
 scrape_configs:</br>
-  - job_name: 'prometheus'</br>
-    static_configs:</br>
-      - targets: ['localhost:9090']</br>
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
 
-  - job_name: 'node'</br>
-    static_configs:</br>
-      - targets: ['node_exporter:9100']</br>
-</blockquote>
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node_exporter:9100']
+```
 Verifier le statut sur prometheus status>Target Health
 <img width="2545" height="213" alt="image" src="https://github.com/user-attachments/assets/85c93c86-80e6-425e-bb10-300cbb80711b" />
 
