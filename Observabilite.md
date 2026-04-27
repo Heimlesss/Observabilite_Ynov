@@ -56,13 +56,13 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    ports:</br>
+    ports:
       - "9090:9090"
     restart: no
 
   node_exporter:
     image: prom/node-exporter
-    ports:</br>
+    ports:
       - "9100:9100"
     restart: no
    
@@ -74,7 +74,7 @@ global:
   scrape_interval: 10s
   external_labels:
     environnment: lab
-scrape_configs:</br>
+scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
