@@ -16,6 +16,6 @@ Atteindre prometheus avec l'url cible : localhost:9090 </br>
 Pour vérifier l'était de santé : </br>
 Status>Target : </br>
 <img width="2544" height="289" alt="image" src="https://github.com/user-attachments/assets/e622dcd1-0651-44cf-91e0-3760fe4d9d59" />
-Pour vérifier que Prometheus se scrap lui même, atteindre prometheus.yml (chemin affiché dans les logs du container) : 
+Pour vérifier que Prometheus se scrap lui même, atteindre prometheus.yml (chemin affiché dans les logs du container, par défaut : /etc/prometheus/prometheus.yml) : 
 <img width="1535" height="253" alt="image" src="https://github.com/user-attachments/assets/a2ac0287-0bb8-4106-b77a-619713e72a8e" />
 
