@@ -5,13 +5,17 @@
 <h3>Exercice 1</h3>
 
 Création d'un fichier docker-compose.yml </br>
-<blockquote>  prometheus:</br>
-    image: prom/prometheus</br>
-    volumes:</br>
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml</br>
-    ports:</br>
-      - "9090:9090"</br>
-    restart: no</br></blockquote> </br>
+
+```
+prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    restart: no
+
+```
 Atteindre prometheus avec l'url cible : localhost:9090 </br>
 Pour vérifier l'était de santé : </br>
 Status>Target : </br>
@@ -20,14 +24,21 @@ Pour vérifier que Prometheus se scrap lui même, atteindre prometheus.yml (chem
 <img width="1535" height="253" alt="image" src="https://github.com/user-attachments/assets/a2ac0287-0bb8-4106-b77a-619713e72a8e" />
 
 
-
-
 <h3>Exercice 2</h3>
 Modififer le fichier de configuration prometheus.yml
-<blockquote>global:</br>
-  scrape_interval: 10s</br>
-  external_labels:</br>
-    environnment: lab</br></blockquote>
+
+```
+global:
+  scrape_interval: 10s
+  external_labels:
+    environnment: lab
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+       
+```
 Recharger avec un <blockquote>curl -X POST http://localhost:9090/-/reload</blockquote>
 Verifier la manipulation dans prometheus dans status>Configuration
     
@@ -35,26 +46,31 @@ Verifier la manipulation dans prometheus dans status>Configuration
 
 <h3>Exercice 3</h3>
 Ajout d'un container node_exporter dans le compose
-```services:</br>
-  prometheus:</br>
-    image: prom/prometheus</br>
-    command: </br>
-      - --web.enable-lifecycle </br>
-      - --config.file=/etc/prometheus/prometheus.yml</br>
-    volumes:</br>
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml</br>
+   
+```
+services:
+  prometheus:
+    image: prom/prometheus
+    command:
+      - --web.enable-lifecycle
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:</br>
-      - "9090:9090"</br>
-    restart: no</br>
+      - "9090:9090"
+    restart: no
 
-  node_exporter:</br>
-    image: prom/node-exporter</br>
+  node_exporter:
+    image: prom/node-exporter
     ports:</br>
-      - "9100:9100"</br>
-    restart: no</br>
+      - "9100:9100"
+    restart: no
+   
 ```
 Ajouter un nouveau job nommé 'node' dans prometheus.yml 
-<blockquote>global:
+   
+```
+global:
   scrape_interval: 10s
   external_labels:
     environnment: lab
