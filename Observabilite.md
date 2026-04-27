@@ -35,7 +35,7 @@ Verifier la manipulation dans prometheus dans status>Configuration
 
 <h3>Exercice 3</h3>
 Ajout d'un container node_exporter dans le compose
-<blockquote>services:</br>
+```yamlservices:</br>
   prometheus:</br>
     image: prom/prometheus</br>
     command: </br>
@@ -52,7 +52,7 @@ Ajout d'un container node_exporter dans le compose
     ports:</br>
       - "9100:9100"</br>
     restart: no</br>
-</blockquote></br>
+```</br>
 Ajouter un nouveau job nommé 'node' dans prometheus.yml 
 <blockquote>global:</br>
   scrape_interval: 10s</br>
