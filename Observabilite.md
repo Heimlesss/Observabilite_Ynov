@@ -13,4 +13,7 @@ Création d'un fichier docker-compose.yml </br>
       - "9090:9090"</br>
     restart: no</br></blockquote>
   
+Pour vérifier l'était de santé : </br>
+Status>Target : </br>
+<img width="2544" height="289" alt="image" src="https://github.com/user-attachments/assets/e622dcd1-0651-44cf-91e0-3760fe4d9d59" />
 
