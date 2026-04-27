@@ -5,6 +5,12 @@
 <h3>Exercice 1</h3>
 
 Création d'un fichier docker-compose.yml
-'''
-<img width="663" height="176" alt="image" src="https://github.com/user-attachments/assets/ac6ae043-af0a-4bc3-b4f1-ec7f8cbe1575" />
-'''
+<blockquote>  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    restart: no</blockquote>
+  
+
