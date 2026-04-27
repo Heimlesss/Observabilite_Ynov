@@ -90,3 +90,67 @@ Tester node_cpu_seconds_total sur prometheus en query
 Verifier le retour : 
 <img width="2559" height="1077" alt="image" src="https://github.com/user-attachments/assets/46be0346-98a5-4c19-97f3-eabe7bcbde28" />
 
+<h3>Exercice 4</h3>
+
+Créer un target.json
+doc officielle : https://prometheus.io/docs/guides/file-sd/
+```
+[
+  {
+    "targets": ["node_exporter:9100"],
+    "labels": {
+      "job": "node"
+    }
+  },
+  {
+    "targets": ["localhost:9090"],
+    "labels": {
+      "job": "prom"
+    }
+  }
+]
+```
+Modifier le docker-compose.yml en conséquence :
+Copie du targets.json dans /etc/prometheus/sd/targets.json
+```
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    restart: no
+
+  prometheus:
+    image: prom/prometheus
+    command: 
+      - --web.enable-lifecycle 
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./targets.json:/etc/prometheus/sd/targets.json
+    ports:
+      - "9090:9090"
+    restart: no
+
+  node_exporter:
+    image: prom/node-exporter
+    ports:
+      - "9100:9100"
+    restart: no
+```
+Retirer les scrape statics et ajouter le file_sd_configs  qui pointe le /etc/prometheus/sd/targets.json : 
+```
+global:
+  scrape_interval: 10s
+  external_labels:
+    environment: lab
+
+scrape_configs:
+  - job_name: 'node_sd'
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/sd/targets.json'
+        refresh_interval: 30s
+```
+Relancer les containes et vérifier l'état des target sur prometheus sur Status>Target Health
+<img width="2538" height="596" alt="image" src="https://github.com/user-attachments/assets/e2513a9c-0cb7-43c8-a485-cffea2491a1e" />
