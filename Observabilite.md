@@ -52,4 +52,20 @@ Ajout d'un container node_exporter dans le compose
     ports:</br>
       - "9100:9100"</br>
     restart: no</br>
+</blockquote></br>
+Ajouter un nouveau job nommé 'node' dans prometheus.yml 
+<blockquote>global:</br>
+  scrape_interval: 10s</br>
+  external_labels:</br>
+    environnment: lab</br>
+
+scrape_configs:</br>
+  - job_name: 'prometheus'</br>
+    static_configs:</br>
+      - targets: ['localhost:9090']</br>
+
+  - job_name: 'node'</br>
+    static_configs:</br>
+      - targets: ['node_exporter:9100']</br>
 </blockquote>
+
