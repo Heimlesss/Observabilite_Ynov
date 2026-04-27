@@ -58,7 +58,6 @@ Ajouter un nouveau job nommé 'node' dans prometheus.yml
   scrape_interval: 10s</br>
   external_labels:</br>
     environnment: lab</br>
-
 scrape_configs:</br>
   - job_name: 'prometheus'</br>
     static_configs:</br>
