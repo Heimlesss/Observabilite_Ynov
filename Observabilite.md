@@ -69,3 +69,8 @@ scrape_configs:</br>
 </blockquote>
 Verifier le statut sur prometheus status>Target Health
 <img width="2545" height="213" alt="image" src="https://github.com/user-attachments/assets/85c93c86-80e6-425e-bb10-300cbb80711b" />
+
+Tester node_cpu_seconds_total sur prometheus en query 
+Verifier le retour : 
+<img width="2559" height="1077" alt="image" src="https://github.com/user-attachments/assets/46be0346-98a5-4c19-97f3-eabe7bcbde28" />
+
