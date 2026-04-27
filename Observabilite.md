@@ -67,4 +67,5 @@ scrape_configs:</br>
     static_configs:</br>
       - targets: ['node_exporter:9100']</br>
 </blockquote>
-
+Verifier le statut sur prometheus status>Target Health
+<img width="2545" height="213" alt="image" src="https://github.com/user-attachments/assets/85c93c86-80e6-425e-bb10-300cbb80711b" />
