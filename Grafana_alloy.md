@@ -58,4 +58,6 @@ loki.write "grafana_loki" {
   }
 }
 ```     
+
+Les labels loglevel et environment apparaissent bien sur Grafana
 <img width="2540" height="1261" alt="image" src="https://github.com/user-attachments/assets/bc55991c-b199-4043-8732-abf3a4d7eaf9" />
