@@ -85,6 +85,7 @@ sudo cp config.alloy /etc/alloy/config.alloy
 sudo systemctl reload alloy
 curl -X POST http://localhost:12345/-/reload
 ```
+Les targets peuvent être vérifié ici : 
 <img width="2066" height="1088" alt="image" src="https://github.com/user-attachments/assets/48d6222a-4c89-495a-b53d-b87a877df82d" />
 
 Verification des logs dans Grafana
