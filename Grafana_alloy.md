@@ -61,3 +61,21 @@ loki.write "grafana_loki" {
 
 Les labels loglevel et environment apparaissent bien sur Grafana
 <img width="2540" height="1261" alt="image" src="https://github.com/user-attachments/assets/bc55991c-b199-4043-8732-abf3a4d7eaf9" />
+
+Exercice 3 : 
+
+Préparer le répertoire et la config Alloy
+```
+bashsudo mkdir -p /var/log/apps
+sudo chmod 777 /var/log/apps
+``` 
+Modifier la config Alloy pour ajouter le nouveau répertoire :
+```
+alloylocal.file_match "local_files" {
+  path_targets = [
+    {"__path__" = "/var/log/*.log"},
+    {"__path__" = "/var/log/apps/*.log"},
+  ]
+  sync_period = "5s"
+}
+``` 
