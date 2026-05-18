@@ -66,7 +66,7 @@ Exercice 3 :
 
 Préparer le répertoire et la config Alloy
 ```
-bashsudo mkdir -p /var/log/apps
+sudo mkdir -p /var/log/apps
 sudo chmod 777 /var/log/apps
 ``` 
 Modifier la config Alloy pour ajouter le nouveau répertoire :
