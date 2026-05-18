@@ -6,3 +6,10 @@ Suivre les étapes https://grafana.com/docs/alloy/latest/tutorials/send-logs-to-
 
 
 <img width="2546" height="1254" alt="Capture d&#39;écran 2026-05-18 100318" src="https://github.com/user-attachments/assets/8de48231-0fa7-4036-b57d-14d7fa765e96" />
+
+
+Exercice 2 : 
+
+
+
+<img width="2540" height="1261" alt="image" src="https://github.com/user-attachments/assets/bc55991c-b199-4043-8732-abf3a4d7eaf9" />
